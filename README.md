@@ -2,7 +2,7 @@
 
 Static website generator PUG/SCSS/ES6
 
-Work on **app/** folder and gulp build in **dist/**.
+Work on **app/** folder and gulp build in **build/**.
 
 ## Installation
 
