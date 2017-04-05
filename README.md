@@ -35,19 +35,19 @@ yarn install
 ### Run project
 
 ```
-yarn start
+yarn run start
 ```
 
 ### Build project
 
 ```
-yarn build
+yarn run build
 ```
 
 ### Clean project
 
 ```
-yarn clean
+yarn run clean
 ```
 
 ### Optimize for production
