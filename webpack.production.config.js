@@ -1,45 +1,40 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   watch: false,
   output: {
-    filename: '[name].js',
-    publicPath: '/'
+    filename: "[name].js",
+    publicPath: "/"
   },
   // Exposing external libs (loaded from cdn)
   externals: {
-    'jquery': 'jQuery'
+    jquery: "jQuery"
   },
   resolve: {
-    extensions: [
-      '',
-      '.js',
-      '.json'
-    ],
-    root: [
-      path.resolve('./build/assets/js')
-    ]
+    extensions: ["", ".js", ".json"],
+    root: [path.resolve("./build/assets/js")]
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loaders: [
-        'babel' // babel config is located in .babelrc
-      ]
-    }, {
-      test: /\.json$/,
-      loaders: [
-        'json'
-      ]
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: [
+          "babel-loader" // babel config is located in .babelrc
+        ]
+      },
+      {
+        test: /\.json$/,
+        loaders: ["json"]
+      }
+    ]
   },
   plugins: [
     // Force NODE_ENV='production'
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
       }
     }),
     new webpack.optimize.DedupePlugin(),
@@ -58,12 +53,11 @@ module.exports = {
         warnings: false // Disable warnings. Set to true when checking for issues
       },
       mangle: {
-        except: ['$super', '$', 'exports', 'require']
+        except: ["$super", "$", "exports", "require"]
       },
       output: {
         comments: false
       }
     })
   ]
-
 };
